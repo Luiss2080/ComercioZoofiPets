@@ -1,0 +1,47 @@
+﻿
+  Dropping all tables  83.22ms DONE
+
+   INFO  Preparing database.  
+
+  Creating migration table  7.44ms DONE
+
+   INFO  Running migrations.  
+
+  0001_01_01_000000_create_users_table  42.68ms DONE
+  0001_01_01_000001_create_cache_table  27.66ms DONE
+  0001_01_01_000002_create_jobs_table  34.71ms DONE
+  2026_03_02_184141_create_categorias_table  5.43ms DONE
+  2026_03_02_184141_create_metodos_pago_table  4.69ms DONE
+  2026_03_02_184142_create_empleados_table  4.87ms DONE
+  2026_03_02_184142_create_proveedores_table  4.93ms DONE
+  2026_03_02_184450_create_clientes_table  5.05ms DONE
+  2026_03_02_184451_create_clientes_01_naturales_table  18.33ms DONE
+  2026_03_02_184452_create_clientes_02_juridicos_table  18.91ms DONE
+  2026_03_02_184453_create_tarjetas_table  18.29ms DONE
+  2026_03_02_184658_create_productos_table  33.26ms DONE
+  2026_03_02_184659_create_01_inventarios_table  18.37ms DONE
+  2026_03_02_185955_create_compras_table  18.09ms DONE
+  2026_03_02_185956_create_detalle_compras_table  34.02ms DONE
+  2026_03_02_185956_create_detalle_ventas_table  14.50ms FAIL
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `comerciozoofipets`.`detalle_ventas` (errno: 150 "Foreign key constraint is incorrectly formed") (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: ComercioZoofiPets, SQL: alter table `detalle_ventas` add constraint `detalle_ventas_venta_id_foreign` foreign key (`venta_id`) references `ventas` (`id`) on delete cascade)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834Ôûò             $exceptionType = $this->isUniqueConstraintError($e)
+    835Ôûò                 ? UniqueConstraintViolationException::class
+    836Ôûò                 : QueryException::class;
+    837Ôûò 
+  Ô×£ 838Ôûò             throw new $exceptionType(
+    839Ôûò                 $this->getNameWithReadWriteType(),
+    840Ôûò                 $query,
+    841Ôûò                 $this->prepareBindings($bindings),
+    842Ôûò                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOException::("SQLSTATE[HY000]: General error: 1005 Can't create table `comerciozoofipets`.`detalle_ventas` (errno: 150 "Foreign key constraint is incorrectly formed")")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOStatement::execute()
+
