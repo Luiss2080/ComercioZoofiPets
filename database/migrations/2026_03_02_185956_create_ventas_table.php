@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('fecha')->useCurrent();
+            $table->decimal('total', 10, 2);
+            $table->string('tipo_venta')->nullable(); // Presencial, Online, etc.
+            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('empleado_id')->constrained('empleados');
             $table->timestamps();
         });
     }

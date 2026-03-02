@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('fecha')->useCurrent();
+            $table->decimal('total', 10, 2);
+            $table->string('estado')->default('pendiente');
+            $table->foreignId('proveedor_id')->constrained('proveedores');
             $table->timestamps();
         });
     }
